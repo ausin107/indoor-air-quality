@@ -3,7 +3,7 @@ import Sun from '@/app/assets/sun.png'
 export default function Home() {
   return (
     <main className='px-16 pt-10'>
-      <div className='lg:mb-10 md:mb-5'>
+      <div className='lg:mb-7 md:mb-5'>
         <h1 className='lg:text-4xl md:text-lg text-base font-bold mb-5'>Indoor air quality at Home</h1>
         <p className='lg:text-lg md:text-base mb-3 font-semibold'>Air quality index (AQI) and PM2.5 air pollution</p>
         <p className='text-sm'>
@@ -11,7 +11,7 @@ export default function Home() {
         </p>
       </div>
       <div className='flex'>
-        <div className='flex flex-col items-center lg:w-72 lg:px-8 lg:py-5 border shadow mr-12'>
+        <div className='flex flex-col items-center lg:w-80 lg:px-8 lg:py-5 border shadow-xl mr-12 h-fit'>
           <div className='flex items-center justify-between w-full mb-5'>
             <h1 className='text-lg font-bold'>Home</h1>
             <Image src={Sun} alt='Image' className='w-16' />
@@ -24,7 +24,7 @@ export default function Home() {
           <p className='mb-3'>Humidity: 50%</p>
           <p className='mb-5'>Temperature: 28°C</p>
         </div>
-        <div className='flex flex-col flex-grow'>
+        <div className='flex flex-col flex-grow shadow-lg'>
           <div className='flex bg-[#A8E05F] px-12 py-10 rounded'>
             <div className='bg-[#87C13C] px-3 py-5 rounded w-28 h-28 mr-10'>
               <p className='text-white text-sm'>HOME AQI</p>
@@ -35,7 +35,7 @@ export default function Home() {
               <p className='text-[#607631] text-4xl font-bold'>Good</p>
             </div>
           </div>
-          <div className='px-12 py-5 border-x border-b shadow'>
+          <div className='px-12 py-8 border-x border-b shadow'>
             <div className='flex bg-[#E1DD72] py-5 px-7 rounded w-full justify-between items-center mb-5'>
               <p className='font-bold text-2xl'>PM2.5</p>
               <div className='w-36'>
