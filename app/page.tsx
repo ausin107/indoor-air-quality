@@ -1,16 +1,24 @@
 import Image from 'next/image'
 import Sun from '@/app/assets/sun.png'
+import Drop from '@/app/assets/drop.png'
+import Moon from '@/app/assets/moon.png'
 export default function Home() {
   return (
-    <main className='px-16 pt-10'>
+    <main className='lg:px-16 lg:pt-10 px-6 pt-10'>
       <div className='lg:mb-7 md:mb-5'>
-        <h1 className='lg:text-4xl md:text-lg text-base font-bold mb-5'>Indoor air quality at Home</h1>
-        <p className='lg:text-lg md:text-base mb-3 font-semibold'>Air quality index (AQI) and PM2.5 air pollution</p>
-        <p className='text-sm'>
-          <strong>Last update:</strong> 10s ago
-        </p>
+        <div className='md:hidden flex flex-col items-center'>
+          <h1 className='md:hidden text-4xl font-bold'>Home</h1>
+          <h6 className='md:hidden text-2xl font-bold mb-10 md:mb-0'>Indoor Air Quality</h6>
+        </div>
+        <div className='md:block hidden'>
+          <h1 className='lg:text-4xl md:text-lg text-xl font-bold mb-5 '>Indoor air quality at Home</h1>
+          <p className='lg:text-lg md:text-base mb-3 font-semibold '>Air quality index (AQI) and PM2.5 air pollution</p>
+          <p className='text-sm '>
+            <strong>Last update:</strong> 10s ago
+          </p>
+        </div>
       </div>
-      <div className='flex'>
+      <div className='md:flex lg:flex-row flex-col hidden'>
         <div className='flex flex-col items-center lg:w-80 lg:px-8 lg:py-5 border shadow-xl mr-12 h-fit'>
           <div className='flex items-center justify-between w-full mb-5'>
             <h1 className='text-lg font-bold'>Home</h1>
@@ -57,6 +65,52 @@ export default function Home() {
                 <span className='font-semibold'>ppm</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className='block md:hidden'>
+        <div className='bg-[#A8E05F] flex p-6 rounded justify-between'>
+          <div className='bg-[#87C13C] text-white rounded-lg w-20 h-20 items-center justify-center flex flex-col'>
+            <p className='font-semibold text-3xl'>20</p>
+            <p className='text-sm'>AQI</p>
+          </div>
+          <div className='flex flex-col items-center justify-between'>
+            <div className='text-[#3E5116] font-semibold text-3xl'>Good</div>
+            <div className='bg-white text-[#60B908] font-medium px-3 py-1 rounded-lg'>
+              PM2.5 <span className='font-bold text-sm'>40 µg/m³</span>
+            </div>
+          </div>
+        </div>
+        <div className='shadow-2xl p-6 flex items-center justify-between rounded mb-5'>
+          <div className='flex items-center'>
+            <Image src={Sun} alt='Image' className='w-14 mr-4' />
+            <p className='font-bold text-2xl'>28°C</p>
+          </div>
+          <div className='flex items-center'>
+            <Image src={Drop} alt='Image' className='w-14 mr-1' />
+            <p className='font-bold text-2xl'>65%</p>
+          </div>
+        </div>
+        <div className='text-lg flex justify-center mb-8'>Last update: 10s ago</div>
+        <div className='bg-[#E1DD72] py-5 px-6 pr-2 mb-6 rounded-lg flex justify-between items-center'>
+          <p className='text-2xl font-semibold'>PM2.5</p>
+          <div className='flex items-center'>
+            <p className='font-bold text-4xl mr-2'>40</p>
+            <p className='text-base'>µg/m³</p>
+          </div>
+        </div>
+        <div className='bg-[#A8C66C] py-5 px-6 mb-6 rounded-lg flex justify-between items-center'>
+          <p className='text-2xl font-semibold'>ECO2</p>
+          <div className='flex items-center'>
+            <p className='font-bold text-4xl mr-2'>40</p>
+            <p className='text-base'>ppb</p>
+          </div>
+        </div>
+        <div className='bg-[#24B589] py-5 px-6 rounded-lg flex justify-between items-center'>
+          <p className='text-2xl font-semibold'>TVOC</p>
+          <div className='flex items-center'>
+            <p className='font-bold text-4xl mr-2'>450</p>
+            <p className='text-base'>ppm</p>
           </div>
         </div>
       </div>
