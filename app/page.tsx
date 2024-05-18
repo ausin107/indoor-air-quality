@@ -25,7 +25,7 @@ export default function Home() {
   }, [])
   return (
     <main className='w-screen h-screen flex justify-center items-center md:bg-black'>
-      <div className='p-10 pt-0 md:pt-10 md:border-4 md:border-black rounded-2xl md:shadow-xl bg-white'>
+      <div className='md:p-10 md:border-4 md:border-black rounded-2xl md:shadow-xl bg-white'>
         <div className='lg:mb-7 md:mb-5'>
           <div className='flex flex-col items-center'>
             <h1 className='text-4xl font-bold'>Home</h1>
@@ -57,7 +57,6 @@ export default function Home() {
               <p className='font-bold text-2xl'>{Math.round(parseFloat(data[1])) || 0}%</p>
             </div>
           </div>
-          {/* <div className='text-lg flex justify-center mb-8'>Last update: 10s ago</div> */}
           <div className='bg-[#E1DD72] py-5 px-6 pr-2 mb-6 rounded-lg flex justify-between items-center shadow'>
             <p className='text-2xl font-semibold'>PM2.5</p>
             <div className='flex items-center'>
