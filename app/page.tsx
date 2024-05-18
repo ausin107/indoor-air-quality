@@ -32,7 +32,7 @@ export default function Home() {
             <h6 className='text-2xl font-bold mb-10 md:mb-0'>Indoor Air Quality</h6>
           </div>
         </div>
-        <div className='md:w-[20rem]'>
+        <div className='w-[20rem]'>
           <div className={`flex p-6 rounded justify-between ${lightColors[status || 0]}`}>
             <div
               className={`text-white rounded-lg w-20 h-20 items-center justify-center flex flex-col ${
