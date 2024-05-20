@@ -67,15 +67,15 @@ export default function Home() {
           <div className='bg-[#A8C66C] py-5 px-6 mb-6 rounded-lg flex justify-between items-center shadow'>
             <p className='text-2xl font-semibold'>ECO2</p>
             <div className='flex items-center'>
-              <p className='font-bold text-4xl mr-2'>{+data[3] || 0}</p>
-              <p className='text-base'>ppb</p>
+              <p className='font-bold text-4xl mr-2'>{+data[4] || 0}</p>
+              <p className='text-base'>ppm</p>
             </div>
           </div>
           <div className='bg-[#24B589] py-5 px-6 rounded-lg flex justify-between items-center shadow'>
             <p className='text-2xl font-semibold'>TVOC</p>
             <div className='flex items-center'>
-              <p className='font-bold text-4xl mr-2'>{+data[4] || 0}</p>
-              <p className='text-base'>ppm</p>
+              <p className='font-bold text-4xl mr-2'>{+data[3] || 0}</p>
+              <p className='text-base'>ppb</p>
             </div>
           </div>
         </div>
