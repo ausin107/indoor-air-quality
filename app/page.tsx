@@ -7,17 +7,16 @@ import { database } from './firebaseConfig'
 import { ref, onValue } from 'firebase/database'
 import { aiqStatus } from '@/app/utils/aiqStatus'
 export default function Home() {
-  const [data, setData] = useState<string[]>([])
+  const [data, setData] = useState<any>({})
   const [status, setStatus] = useState<number | undefined>(0)
   const lightColors = ['bg-lightGreen', 'bg-lightYellow', 'bg-lightOrange', 'bg-lightRed', 'bg-lightPurple']
   const darkColors = ['bg-darkGreen', 'bg-darkYellow', 'bg-darkOrange', 'bg-darkRed', 'bg-darkPurple']
   const textColors = ['text-textGreen', 'text-textYellow', 'text-textOrange', 'text-textRed', 'text-textPurple']
   const iaqStatus = ['Good', 'Moderate', 'Poor', 'Unhealthy', 'Hazardous']
   useEffect(() => {
-    const dataRef = ref(database, 'Data/project')
+    const dataRef = ref(database, 'test')
     onValue(dataRef, (snapshot) => {
-      const data = snapshot.val().split('/')
-      data.pop()
+      const data = snapshot.val()
       const iaq = aiqStatus(+data[4], +data[3], parseFloat(data[2]))
       setData(data)
       setStatus(iaq)
@@ -43,38 +42,38 @@ export default function Home() {
             <div className='flex flex-col items-center justify-between'>
               <div className={`font-semibold text-3xl ${textColors[status || 0]}`}>{iaqStatus[status || 0]}</div>
               <div className={`bg-white font-medium px-3 py-1 rounded-lg ${textColors[status || 0]} `}>
-                PM2.5 <span className='font-bold text-sm'>{Math.round(parseFloat(data[2])) || 0} µg/m³</span>
+                PM2.5 <span className='font-bold text-sm'>{Math.round(parseFloat(data?.Dust)) || 0} µg/m³</span>
               </div>
             </div>
           </div>
           <div className='shadow-2xl p-6 flex items-center justify-between rounded md:mb-14 mb-10'>
             <div className='flex items-center'>
               <Image src={Sun} alt='Image' className='w-14 mr-4' />
-              <p className='font-bold text-2xl'>{Math.round(parseFloat(data[0])) || 0}°C</p>
+              <p className='font-bold text-2xl'>{Math.round(parseFloat(data.Temp)) || 0}°C</p>
             </div>
             <div className='flex items-center'>
               <Image src={Drop} alt='Image' className='w-14 mr-1' />
-              <p className='font-bold text-2xl'>{Math.round(parseFloat(data[1])) || 0}%</p>
+              <p className='font-bold text-2xl'>{Math.round(parseFloat(data.Humid)) || 0}%</p>
             </div>
           </div>
           <div className='bg-[#E1DD72] py-5 px-6 pr-2 mb-6 rounded-lg flex justify-between items-center shadow'>
             <p className='text-2xl font-semibold'>PM2.5</p>
             <div className='flex items-center'>
-              <p className='font-bold text-4xl mr-2'>{parseFloat(data[2]).toFixed(1) || 0}</p>
+              <p className='font-bold text-4xl mr-2'>{parseFloat(data.Dust).toFixed(1) || 0}</p>
               <p className='text-base'>µg/m³</p>
             </div>
           </div>
           <div className='bg-[#A8C66C] py-5 px-6 mb-6 rounded-lg flex justify-between items-center shadow'>
             <p className='text-2xl font-semibold'>ECO2</p>
             <div className='flex items-center'>
-              <p className='font-bold text-4xl mr-2'>{+data[4] || 0}</p>
+              <p className='font-bold text-4xl mr-2'>{+data.ECO2 || 0}</p>
               <p className='text-base'>ppm</p>
             </div>
           </div>
           <div className='bg-[#24B589] py-5 px-6 rounded-lg flex justify-between items-center shadow'>
             <p className='text-2xl font-semibold'>TVOC</p>
             <div className='flex items-center'>
-              <p className='font-bold text-4xl mr-2'>{+data[3] || 0}</p>
+              <p className='font-bold text-4xl mr-2'>{+data.TVOC || 0}</p>
               <p className='text-base'>ppb</p>
             </div>
           </div>
