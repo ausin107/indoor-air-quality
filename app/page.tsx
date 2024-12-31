@@ -17,7 +17,11 @@ export default function Home() {
     const dataRef = ref(database, 'test')
     onValue(dataRef, (snapshot) => {
       const data = snapshot.val()
-      const iaq = aiqStatus(+data[4], +data[3], parseFloat(data[2]))
+      console.log(data)
+
+      const iaq = aiqStatus(+data.ECO2, +data.TVOC, parseFloat(data.Dust))
+      console.log(iaq)
+
       setData(data)
       setStatus(iaq)
     })
