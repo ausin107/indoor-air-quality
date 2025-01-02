@@ -15,7 +15,7 @@ export const aiqStatus = (eco2: number, tvoc: number, pm: number) => {
     case eco2 > 2000 && eco2 <= 2500:
       ECO2I = 3
       break
-    case eco2 > 2500 && eco2 <= 15000:
+    case eco2 > 2500:
       ECO2I = 4
       break
   }
@@ -32,7 +32,7 @@ export const aiqStatus = (eco2: number, tvoc: number, pm: number) => {
     case tvoc > 1430 && tvoc <= 2200:
       TVOCI = 3
       break
-    case tvoc > 2200 && tvoc <= 5500:
+    case tvoc > 2200:
       TVOCI = 4
       break
   }
@@ -49,7 +49,7 @@ export const aiqStatus = (eco2: number, tvoc: number, pm: number) => {
     case pm > 55.4 && pm <= 150.4:
       PMI = 3
       break
-    case pm > 150.4 && pm <= 500:
+    case pm > 150.4:
       PMI = 4
       break
   }
