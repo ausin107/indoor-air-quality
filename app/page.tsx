@@ -44,13 +44,15 @@ export default function Home() {
               <p className='text-xl font-semibold'>AQI</p>
             </div>
             <div className='flex flex-col items-center justify-between'>
-              <div className={`font-semibold text-3xl ${textColors[status || 0]}`}>{iaqStatus[status || 0]}</div>
+              <div className={`font-semibold text-3xl text-white ${textColors[status || 0]}`}>
+                {iaqStatus[status || 0]}
+              </div>
               <div className={`bg-white font-medium px-3 py-1 rounded-lg ${textColors[status || 0]} `}>
                 PM2.5 <span className='font-bold text-sm'>{Math.round(parseFloat(data?.Dust)) || 0} µg/m³</span>
               </div>
             </div>
           </div>
-          <div className='shadow-2xl p-6 flex items-center justify-between rounded md:mb-14 mb-10'>
+          <div className='shadow-2xl p-6 flex items-center justify-between rounded'>
             <div className='flex items-center'>
               <Image src={Sun} alt='Image' className='w-14 mr-4' />
               <p className='font-bold text-2xl'>{Math.round(parseFloat(data.Temp)) || 0}°C</p>
@@ -58,6 +60,15 @@ export default function Home() {
             <div className='flex items-center'>
               <Image src={Drop} alt='Image' className='w-14 mr-1' />
               <p className='font-bold text-2xl'>{Math.round(parseFloat(data.Humid)) || 0}%</p>
+            </div>
+          </div>
+          <div className='flex justify-center'>
+            <div className='flex text-xl items-center justify-center my-3 bg-[#fec247] p-1 w-1/2 rounded-lg'>
+              <div className='text-xl font-semibold mr-4'>Light</div>
+              <div className='mr-2'>
+                <span className='font-semibold mr-1'>{Math.round(parseFloat(data.Light))}</span>
+                <span className='text-base'>lx</span>
+              </div>
             </div>
           </div>
           <div className='bg-[#E1DD72] py-5 px-6 pr-2 mb-6 rounded-lg flex justify-between items-center shadow'>
